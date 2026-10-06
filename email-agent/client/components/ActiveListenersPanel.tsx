@@ -54,8 +54,7 @@ export function ActiveListenersPanel() {
             {/* Listener Summary */}
             <button
               onClick={() => setExpandedListener(
-                expandedListener === listener.id ? null : listener.id
-              )}
+                expandedListener === listener.id ? null : listener.id )}
               className="w-full px-3 py-2 flex items-center justify-between hover:bg-gray-50 transition-colors"
             >
               <div className="flex items-center gap-2 text-left">

@@ -54,8 +54,7 @@ export class LogWriter {
     } catch (error) {
       console.error(
         `[LogWriter] Failed to write log for listener ${listenerId}:`,
-        error
-      );
+        error );
     }
   }
 
@@ -64,8 +63,7 @@ export class LogWriter {
    */
   async readLogs(
     listenerId: string,
-    limit: number = 50
-  ): Promise<ListenerLogEntry[]> {
+    limit: number = 50 ): Promise<ListenerLogEntry[]> {
     try {
       const logFile = path.join(this.logsDir, `${listenerId}.jsonl`);
 
@@ -95,8 +93,7 @@ export class LogWriter {
     } catch (error) {
       console.error(
         `[LogWriter] Failed to read logs for listener ${listenerId}:`,
-        error
-      );
+        error );
       return [];
     }
   }

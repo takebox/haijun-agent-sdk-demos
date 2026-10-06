@@ -1,6 +1,6 @@
 # Resume Generator
 
-Generate professional resumes using Claude Agent SDK with web search capabilities.
+Generate professional resumes using Haijun Agent SDK with web search capabilities.
 
 ## Features
 
@@ -18,7 +18,7 @@ npm start "Person Name"
 ## How it works
 
 1. Uses `WebSearch` to research the person's professional background
-2. Gathers information about their current role, past experience, education, and skills
+2. Gathers information about their current role, past experience, education, and tracks
 3. Generates a JavaScript file that creates the resume using the `docx` library
 4. Executes the script to produce a `.docx` file
 

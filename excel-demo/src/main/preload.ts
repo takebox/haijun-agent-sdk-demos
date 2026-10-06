@@ -4,10 +4,10 @@ import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
 
 export type Channels =
   | 'ipc-example'
-  | 'claude-code:query'
-  | 'claude-code:response'
-  | 'claude-code:error'
-  | 'claude-code:output-files';
+  | 'haijun-code:query'
+  | 'haijun-code:response'
+  | 'haijun-code:error'
+  | 'haijun-code:output-files';
 
 const electronHandler = {
   ipcRenderer: {

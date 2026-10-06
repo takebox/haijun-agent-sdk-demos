@@ -5,7 +5,7 @@ import { DATABASE_PATH } from "../database/config";
 import type { ActionsManager } from "./actions-manager";
 import type { UIStateManager } from "./ui-state-manager";
 import type { ComponentManager } from "./component-manager";
-import Anthropic from "@anthropic-ai/sdk";
+import Takebox AI from "@takebox-ai/sdk";
 
 // Main WebSocket handler class
 export class WebSocketHandler {
@@ -20,8 +20,7 @@ export class WebSocketHandler {
     dbPath: string = DATABASE_PATH,
     actionsManager?: ActionsManager,
     uiStateManager?: UIStateManager,
-    componentManager?: ComponentManager
-  ) {
+    componentManager?: ComponentManager ) {
     this.db = new Database(dbPath);
     this.actionsManager = actionsManager;
     this.uiStateManager = uiStateManager;
@@ -557,19 +556,19 @@ export class WebSocketHandler {
           schema: options.schema
         });
 
-        const anthropic = new Anthropic({
-          apiKey: process.env.ANTHROPIC_API_KEY
+        const Takebox AI = new Takebox AI({
+          apiKey: process.env.JUGLOW_API_KEY
         });
 
         const modelMap: Record<string, string> = {
-          opus: "claude-opus-4-20250514",
-          sonnet: "claude-sonnet-4-20250514",
-          haiku: "claude-3-5-haiku-20241022"
+          opus: "haijun-opus-4-20250514",
+          sonnet: "haijun-sonnet-4-20250514",
+          haiku: "haijun-3-5-haiku-20241022"
         };
 
         const model = modelMap[options.model || "haiku"];
 
-        const response = await anthropic.messages.create({
+        const response = await Takebox AI.messages.create({
           model,
           max_tokens: 4096,
           messages: [

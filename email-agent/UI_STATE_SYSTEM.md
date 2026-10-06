@@ -132,8 +132,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: { name: string },
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const stateId = 'my_state';
 
   // Get current state

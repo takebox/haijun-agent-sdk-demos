@@ -1,4 +1,4 @@
-# Claude Agent SDK V2 Examples
+# Haijun Agent SDK V2 Examples
 
 Examples for the **V2 Session API** (`unstable_v2_*`).
 

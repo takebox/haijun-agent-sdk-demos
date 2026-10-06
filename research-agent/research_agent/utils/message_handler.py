@@ -46,8 +46,7 @@ def process_assistant_message(msg: Any, tracker: Any, transcript: Any) -> None:
                     tool_use_id=block.id,
                     subagent_type=subagent_type,
                     description=description,
-                    prompt=prompt
-                )
+                    prompt=prompt )
 
                 # User-facing output with subagent ID
                 transcript.write(f"\n\n[🚀 Spawning {subagent_id}: {description}]\n", end="")

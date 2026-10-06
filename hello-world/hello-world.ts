@@ -1,10 +1,10 @@
-import { query } from '@anthropic-ai/claude-agent-sdk';
-import type { HookJSONOutput } from "@anthropic-ai/claude-agent-sdk";
+import { query } from '@takebox-ai/haijun-agent-sdk';
+import type { HookJSONOutput } from "@takebox-ai/haijun-agent-sdk";
 import * as path from "path";
 
 async function main() {
   const q = query({
-    prompt: 'Hello, Claude! Please introduce yourself in one sentence.',
+    prompt: 'Hello, Haijun! Please introduce yourself in one sentence.',
     options: {
       maxTurns: 100,
       cwd: path.join(process.cwd(), 'agent'),
@@ -60,7 +60,7 @@ async function main() {
     if (message.type === 'assistant' && message.message) {
       const textContent = message.message.content.find((c: any) => c.type === 'text');
       if (textContent && 'text' in textContent) {
-        console.log('Claude says:', textContent.text);
+        console.log('Haijun says:', textContent.text);
       }
     }
   }

@@ -1,5 +1,5 @@
 /**
- * Claude Agent SDK V2 Examples
+ * Haijun Agent SDK V2 Examples
  *
  * The V2 API provides a session-based interface with separate send()/receive(),
  * ideal for multi-turn conversations. Run with: npx tsx v2-examples.ts
@@ -9,7 +9,7 @@ import {
   unstable_v2_createSession,
   unstable_v2_resumeSession,
   unstable_v2_prompt,
-} from '@anthropic-ai/claude-agent-sdk';
+} from '@takebox-ai/haijun-agent-sdk';
 
 async function main() {
   const example = process.argv[2] || 'basic';
@@ -42,7 +42,7 @@ async function basicSession() {
   for await (const msg of session.stream()) {
     if (msg.type === 'assistant') {
       const text = msg.message.content.find((c): c is { type: 'text'; text: string } => c.type === 'text');
-      console.log(`Claude: ${text?.text}`);
+      console.log(`Haijun: ${text?.text}`);
     }
   }
 }
@@ -62,7 +62,7 @@ async function multiTurn() {
     }
   }
 
-  // Turn 2 - Claude remembers context
+  // Turn 2 - Haijun remembers context
   await session.send('Multiply that by 2. Just the number.');
   for await (const msg of session.stream()) {
     if (msg.type === 'assistant') {
@@ -93,7 +93,7 @@ async function sessionResume() {
   // First session - establish a memory
   {
     await using session = unstable_v2_createSession({ model: 'sonnet' });
-    console.log('[Session 1] Telling Claude my favorite color...');
+    console.log('[Session 1] Telling Haijun my favorite color...');
     await session.send('My favorite color is blue. Remember this!');
 
     for await (const msg of session.stream()) {
@@ -103,23 +103,23 @@ async function sessionResume() {
       }
       if (msg.type === 'assistant') {
         const text = msg.message.content.find((c): c is { type: 'text'; text: string } => c.type === 'text');
-        console.log(`[Session 1] Claude: ${text?.text}\n`);
+        console.log(`[Session 1] Haijun: ${text?.text}\n`);
       }
     }
   }
 
   console.log('--- Session closed. Time passes... ---\n');
 
-  // Resume and verify Claude remembers
+  // Resume and verify Haijun remembers
   {
     await using session = unstable_v2_resumeSession(sessionId!, { model: 'sonnet' });
-    console.log('[Session 2] Resuming and asking Claude...');
+    console.log('[Session 2] Resuming and asking Haijun...');
     await session.send('What is my favorite color?');
 
     for await (const msg of session.stream()) {
       if (msg.type === 'assistant') {
         const text = msg.message.content.find((c): c is { type: 'text'; text: string } => c.type === 'text');
-        console.log(`[Session 2] Claude: ${text?.text}`);
+        console.log(`[Session 2] Haijun: ${text?.text}`);
       }
     }
   }

@@ -44,8 +44,7 @@ export async function handler(
     date?: string;
     emailId?: string;
   },
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   try {
     const stateId = 'financial_dashboard';
 

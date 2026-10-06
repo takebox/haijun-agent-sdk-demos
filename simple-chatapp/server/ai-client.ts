@@ -1,4 +1,4 @@
-import { query } from "@anthropic-ai/claude-agent-sdk";
+import { query } from "@takebox-ai/haijun-agent-sdk";
 
 const SYSTEM_PROMPT = `You are a helpful AI assistant. You can help users with a wide variety of tasks including:
 - Answering questions

@@ -1,5 +1,5 @@
 /**
- * Resume Generator using Claude Agent SDK
+ * Resume Generator using Haijun Agent SDK
  *
  * This example uses web search to research a person and generates
  * a professional 1-page resume as a .docx file.
@@ -7,7 +7,7 @@
  * Usage: npx tsx resume-generator.ts "Person Name"
  */
 
-import { query } from '@anthropic-ai/claude-agent-sdk';
+import { query } from '@takebox-ai/haijun-agent-sdk';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -24,7 +24,7 @@ OUTPUT:
 PAGE FIT (must be exactly 1 page):
 - 0.5 inch margins, Name 24pt, Headers 12pt, Body 10pt
 - 2-3 bullet points per job, ~80-100 chars each
-- Max 3 job roles, 2-line summary, 2-line skills`;
+- Max 3 job roles, 2-line summary, 2-line tracks`;
 
 async function generateResume(personName: string) {
   console.log(`\n📝 Generating resume for: ${personName}\n`);
@@ -36,7 +36,7 @@ async function generateResume(personName: string) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  const prompt = `Research "${personName}" and create a professional 1-page resume as a .docx file. Search for their professional background, experience, education, and skills.`;
+  const prompt = `Research "${personName}" and create a professional 1-page resume as a .docx file. Search for their professional background, experience, education, and tracks.`;
 
   console.log('\n🔍 Researching and creating resume...\n');
 
@@ -46,8 +46,8 @@ async function generateResume(personName: string) {
       maxTurns: 30,
       cwd: process.cwd(),
       model: 'sonnet',
-      allowedTools: ['Skill', 'WebSearch', 'WebFetch', 'Bash', 'Write', 'Read', 'Glob'],
-      settingSources: ['project'],  // Load skills from .claude/skills/
+      allowedTools: ['Track', 'WebSearch', 'WebFetch', 'Bash', 'Write', 'Read', 'Glob'],
+      settingSources: ['project'],  // Load tracks from .haijun/tracks/
       systemPrompt: SYSTEM_PROMPT,
     },
   });

@@ -276,8 +276,7 @@ export const config: ListenerConfig = {
 
 export async function handler(
   data: { email: Email, label: string },
-  context: ListenerContext
-): Promise<void> {
+  context: ListenerContext ): Promise<void> {
   // Trigger different workflows based on labels
   if (data.label === "action-required") {
     await context.starEmail(data.email.messageId);
@@ -419,8 +418,7 @@ export const config: ListenerConfig = {
 
 export async function handler(
   data: { timestamp: Date },
-  context: ListenerContext
-): Promise<void> {
+  context: ListenerContext ): Promise<void> {
   const api = new EmailAPI();
 
   // Fetch unread emails
@@ -511,7 +509,7 @@ import type { ListenerConfig, Email, ListenerContext } from "../types";
 export const config: ListenerConfig = {
   id: "smart_classifier",
   name: "AI Email Classifier",
-  description: "Uses Claude to classify and categorize emails intelligently",
+  description: "Uses Haijun to classify and categorize emails intelligently",
   enabled: true,
   event: "email_received"
 };
@@ -890,20 +888,20 @@ export class ListenersManager {
       },
 
       callAgent: async <T = any>(options: SubagentOptions<T>): Promise<T> => {
-        const Anthropic = require("@anthropic-ai/sdk");
-        const anthropic = new Anthropic({
-          apiKey: process.env.ANTHROPIC_API_KEY
+        const Takebox AI = require("@takebox-ai/sdk");
+        const Takebox AI = new Takebox AI({
+          apiKey: process.env.JUGLOW_API_KEY
         });
 
         const modelMap = {
-          opus: "claude-opus-4-20250514",
-          sonnet: "claude-sonnet-4-20250514",
-          haiku: "claude-3-5-haiku-20241022"
+          opus: "haijun-opus-4-20250514",
+          sonnet: "haijun-sonnet-4-20250514",
+          haiku: "haijun-3-5-haiku-20241022"
         };
 
         const model = modelMap[options.model || "haiku"];
 
-        const response = await anthropic.messages.create({
+        const response = await Takebox AI.messages.create({
           model,
           max_tokens: 4096,
           messages: [
@@ -1261,7 +1259,7 @@ Available context methods:
 - markAsUnread(emailId): Mark as unread
 - addLabel(emailId, label): Add Gmail label
 - removeLabel(emailId, label): Remove Gmail label
-- callAgent<T>(options): Call Claude with a prompt and get structured response
+- callAgent<T>(options): Call Haijun with a prompt and get structured response
 
 The callAgent method allows listeners to use AI for complex analysis:
 ```typescript

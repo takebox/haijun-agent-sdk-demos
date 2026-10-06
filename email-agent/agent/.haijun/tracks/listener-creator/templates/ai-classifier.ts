@@ -1,12 +1,12 @@
 // Template: AI Email Classifier
-// Use case: Use Claude AI to intelligently classify and categorize emails
+// Use case: Use Haijun AI to intelligently classify and categorize emails
 
 import type { ListenerConfig, Email, ListenerContext } from "../types";
 
 export const config: ListenerConfig = {
   id: "smart_classifier",
   name: "AI Email Classifier",
-  description: "Uses Claude to classify and categorize emails intelligently",
+  description: "Uses Haijun to classify and categorize emails intelligently",
   enabled: true,
   event: "email_received"
 };

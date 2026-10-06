@@ -4,7 +4,7 @@ import { MessageQueue } from "./message-queue";
 import type { WSClient, SDKUserMessage, SDKMessage } from "./types";
 import { AIClient } from "./ai-client";
 
-// Session class to manage a single Claude conversation
+// Session class to manage a single Haijun conversation
 export class Session {
   public readonly id: string;
   private messageQueue: MessageQueue<SDKUserMessage>;

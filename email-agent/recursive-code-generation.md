@@ -4,7 +4,7 @@
 
 ### Tweet 2: How Listeners Work
 
-Listeners are TypeScript files that respond to email events. The magic? They can spawn Claude subagents on-demand using `context.callAgent()`.
+Listeners are TypeScript files that respond to email events. The magic? They can spawn Haijun subagents on-demand using `context.callAgent()`.
 
 This creates a recursive pattern: your code calls AI, which can generate structured outputs to inform your code's decisions.
 
@@ -13,7 +13,7 @@ sequenceDiagram
     participant Email as 📧 New Email
     participant LM as ListenersManager
     participant Listener as 💻 Your Listener Code
-    participant Agent as 🤖 Claude Subagent
+    participant Agent as 🤖 Haijun Subagent
     participant Actions as ⚡ Email Actions
 
     Email->>LM: email_received event
@@ -110,7 +110,7 @@ graph TB
     end
 
     subgraph "AI Layer"
-        AGENT[Claude Subagents<br/>🤖]
+        AGENT[Haijun Subagents<br/>🤖]
     end
 
     subgraph "Email Layer"

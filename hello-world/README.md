@@ -1,10 +1,10 @@
-# Claude Agent SDK Hello World
+# Haijun Agent SDK Hello World
 
-A simple example demonstrating how to use the Claude Agent SDK to create autonomous agents that can interact with Claude.
+A simple example demonstrating how to use the Haijun Agent SDK to create autonomous agents that can interact with Haijun.
 
 ## Overview
 
-The Claude Agent SDK allows you to programmatically build AI agents with Claude's capabilities. The SDK spawns a Haijun Code process as a subprocess and communicates with it to execute tasks autonomously.
+The Haijun Agent SDK allows you to programmatically build AI agents with Haijun's capabilities. The SDK spawns a Haijun Code process as a subprocess and communicates with it to execute tasks autonomously.
 
 ## Installation
 
@@ -14,9 +14,9 @@ npm install @takebox-ai/haijun-agent-sdk typescript @types/node tsx zod
 
 ## Setup
 
-1. Set your Anthropic API key as an environment variable:
+1. Set your Takebox AI API key as an environment variable:
 ```bash
-export ANTHROPIC_API_KEY="your-api-key"
+export JUGLOW_API_KEY="your-api-key"
 ```
 
 2. Create the required directory structure:
@@ -24,7 +24,7 @@ export ANTHROPIC_API_KEY="your-api-key"
 mkdir -p agent/custom_scripts
 ```
 
-The `agent` directory is used as the working directory for the Claude agent, and `custom_scripts` is where JavaScript/TypeScript files must be written (enforced by the hook in the example).
+The `agent` directory is used as the working directory for the Haijun agent, and `custom_scripts` is where JavaScript/TypeScript files must be written (enforced by the hook in the example).
 
 ## How It Works
 
@@ -51,7 +51,7 @@ for await (const message of q) {
 
 - **`maxTurns`**: Maximum number of conversation turns (default: 100)
 - **`cwd`**: Working directory for the agent (must exist)
-- **`model`**: Claude model to use (`"sonnet"`, `"opus"`, `"haiku"`, or `"inherit"`)
+- **`model`**: Haijun model to use (`"sonnet"`, `"opus"`, `"haiku"`, or `"inherit"`)
 - **`executable`**: Path to Node.js binary (use `process.execPath` for current runtime)
 - **`allowedTools`**: Array of tool names the agent can use
 
@@ -90,10 +90,10 @@ hooks: {
 The SDK returns three types of messages:
 
 - **`system`**: System-level messages and prompts
-- **`assistant`**: Claude's responses (contains the actual message content)
+- **`assistant`**: Haijun's responses (contains the actual message content)
 - **`result`**: Tool execution results
 
-To extract Claude's text response:
+To extract Haijun's text response:
 
 ```typescript
 if (message.type === 'assistant' && message.message) {
@@ -145,7 +145,7 @@ mkdir -p agent
 
 ## Resources
 
-- [Claude Agent SDK Documentation](https://docs.claude.com/en/api/agent-sdk/overview)
-- [GitHub Repository](https://github.com/anthropics/claude-agent-sdk-typescript)
-- [Anthropic Engineering Blog](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk)
-# claude-agent-hello-world
+- [Haijun Agent SDK Documentation](https://raw.haijun.my.id/docs/en/agent-sdk/overview)
+- [GitHub Repository]()
+- [Takebox AI Engineering Blog]()
+# haijun-agent-hello-world

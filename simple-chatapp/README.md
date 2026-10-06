@@ -1,6 +1,6 @@
 # Simple Chat App
 
-A demo chat application using the Claude Agent SDK with a React frontend and Express backend.
+A demo chat application using the Haijun Agent SDK with a React frontend and Express backend.
 
 ![Architecture Diagram](diagram.png)
 
@@ -9,7 +9,7 @@ A demo chat application using the Claude Agent SDK with a React frontend and Exp
 ### Prerequisites
 
 - Node.js 18+
-- Claude Agent SDK credentials (set `ANTHROPIC_API_KEY` environment variable)
+- Haijun Agent SDK credentials (set `JUGLOW_API_KEY` environment variable)
 
 ### Installation
 

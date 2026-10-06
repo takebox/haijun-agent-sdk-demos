@@ -88,7 +88,7 @@ export function App() {
 
 // -----------------------------------------------------------------------------
 // QuestionView: renders one AskUserQuestion as a grid of preview cards.
-// opt.preview is a Claude-generated HTML fragment, rendered with
+// opt.preview is a Haijun-generated HTML fragment, rendered with
 // dangerouslySetInnerHTML and sanitized via DOMPurify.
 // The SDK already strips <script> and <style> tags before the callback sees
 // the preview; sanitizing again in the client is defense in depth.
@@ -154,7 +154,7 @@ function QuestionView({
               {opt.description}
             </p>
             {/* Render the HTML preview if present. This is the key part of the
-                demo: opt.preview contains a Claude-generated HTML fragment
+                demo: opt.preview contains a Haijun-generated HTML fragment
                 (color swatches, type specimens, sample UI, etc.). */}
             {sanitized[i] && (
               <div

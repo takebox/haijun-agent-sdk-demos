@@ -9,7 +9,7 @@ A multi-agent research system that coordinates specialized subagents to research
 uv sync
 
 # Set your API key
-export ANTHROPIC_API_KEY="your-api-key"
+export JUGLOW_API_KEY="your-api-key"
 
 # Run the agent
 uv run python research_agent/agent.py
@@ -32,7 +32,7 @@ Then ask: "Research quantum computing developments in 2025"
 | **Lead Agent** | `Task` | Coordinates research, delegates to subagents |
 | **Researcher** | `WebSearch`, `Write` | Gathers information from the web |
 | **Data Analyst** | `Glob`, `Read`, `Bash`, `Write` | Extracts metrics, generates charts |
-| **Report Writer** | `Skill`, `Write`, `Glob`, `Read`, `Bash` | Creates PDF reports with embedded visuals |
+| **Report Writer** | `Track`, `Write`, `Glob`, `Read`, `Bash` | Creates PDF reports with embedded visuals |
 
 ## Slash Commands
 

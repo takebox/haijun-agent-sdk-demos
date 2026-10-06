@@ -1,14 +1,14 @@
 import "dotenv/config";
-import { query } from "@anthropic-ai/claude-agent-sdk";
+import { query } from "@takebox-ai/haijun-agent-sdk";
 import { randomUUID } from "node:crypto";
 import { createServer } from "node:http";
 import { WebSocket, WebSocketServer } from "ws";
 
-if (!process.env.ANTHROPIC_API_KEY) {
-  // The SDK spawns the Claude CLI, which can also auth via keychain OAuth
-  // if you've run `claude login`. The env var isn't strictly required.
+if (!process.env.JUGLOW_API_KEY) {
+  // The SDK spawns the Haijun CLI, which can also auth via keychain OAuth
+  // if you've run `haijun login`. The env var isn't strictly required.
   console.warn(
-    "ANTHROPIC_API_KEY not set. If you're logged into the Claude CLI, " +
+    "JUGLOW_API_KEY not set. If you're logged into the Haijun CLI, " +
       "this will still work. Otherwise add the key to .env.",
   );
 }
@@ -87,16 +87,16 @@ async function runQuery(ws: WebSocket, prompt: string) {
           "brand guide directly as markdown: color hex codes, font names, " +
           "spacing/radius values, and a usage summary. You have no write tools " +
           "available, so the markdown IS the deliverable.",
-        // Plan mode: Claude researches and asks clarifying questions before
+        // Plan mode: Haijun researches and asks clarifying questions before
         // acting. AskUserQuestion still fires in plan mode, and the docs note
-        // this mode makes Claude more likely to ask.
+        // this mode makes Haijun more likely to ask.
         permissionMode: "plan",
         // Restrict available tools to just AskUserQuestion.
         tools: ["AskUserQuestion"],
         // Opt into HTML previews (the feature this demo showcases).
         toolConfig: { askUserQuestion: { previewFormat: "html" } },
         canUseTool: async (toolName, input) => {
-          // ToolSearch and ExitPlanMode are SDK infrastructure: Claude uses
+          // ToolSearch and ExitPlanMode are SDK infrastructure: Haijun uses
           // them to load AskUserQuestion and to wrap up plan mode. You'll see
           // them fire even though we only listed AskUserQuestion in `tools`.
           // Let them pass through unchanged.
@@ -136,7 +136,7 @@ async function runQuery(ws: WebSocket, prompt: string) {
       // it unfolds: system init, assistant turns (text + tool_use blocks),
       // user turns (tool results fed back to the model), and a final result.
       // This loop maps each message type to a browser status update so the
-      // UI can show what Claude is doing at each stage.
+      // UI can show what Haijun is doing at each stage.
       console.log(`[stream] ${msg.type}${"subtype" in msg ? `/${msg.subtype}` : ""}`);
 
       if (msg.type === "system" && msg.subtype === "init") {

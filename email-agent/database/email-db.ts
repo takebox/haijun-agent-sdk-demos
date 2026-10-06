@@ -111,8 +111,7 @@ export class EmailDatabase {
         labels TEXT,
         raw_headers TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-      )
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP )
     `);
 
     this.db.exec(`
@@ -125,8 +124,7 @@ export class EmailDatabase {
         domain TEXT GENERATED ALWAYS AS (
           LOWER(SUBSTR(address, INSTR(address, '@') + 1))
         ) STORED,
-        FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE
-      )
+        FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE )
     `);
 
     this.db.exec(`
@@ -141,8 +139,7 @@ export class EmailDatabase {
         file_extension TEXT GENERATED ALWAYS AS (
           LOWER(SUBSTR(filename, INSTR(filename, '.') + 1))
         ) STORED,
-        FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE
-      )
+        FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE )
     `);
 
     // Create FTS5 table
@@ -226,15 +223,13 @@ export class EmailDatabase {
         reply_to, body_text, body_html, snippet,
         is_read, is_starred, is_important, is_draft, is_sent,
         is_trash, is_spam, size_bytes, has_attachments,
-        attachment_count, folder, labels, raw_headers
-      ) VALUES (
+        attachment_count, folder, labels, raw_headers ) VALUES (
         $message_id, $imap_uid, $thread_id, $in_reply_to, $email_references,
         $date_sent, $date_received, $subject, $from_address, $from_name,
         $reply_to, $body_text, $body_html, $snippet,
         $is_read, $is_starred, $is_important, $is_draft, $is_sent,
         $is_trash, $is_spam, $size_bytes, $has_attachments,
-        $attachment_count, $folder, $labels, $raw_headers
-      )
+        $attachment_count, $folder, $labels, $raw_headers )
     `);
 
     const insertRecipient = this.db.prepare(`
@@ -244,10 +239,8 @@ export class EmailDatabase {
 
     const insertAttachment = this.db.prepare(`
       INSERT INTO attachments (
-        email_id, filename, content_type, size_bytes, content_id, is_inline
-      ) VALUES (
-        $email_id, $filename, $content_type, $size_bytes, $content_id, $is_inline
-      )
+        email_id, filename, content_type, size_bytes, content_id, is_inline ) VALUES (
+        $email_id, $filename, $content_type, $size_bytes, $content_id, $is_inline )
     `);
 
     // Use transaction for consistency
@@ -423,8 +416,7 @@ export class EmailDatabase {
         e.id IN (
           SELECT e2.id FROM emails e2
           JOIN emails_fts fts ON e2.message_id = fts.message_id
-          WHERE emails_fts MATCH $query
-        )
+          WHERE emails_fts MATCH $query )
       `);
       params.$query = options.query;
     }
@@ -448,8 +440,7 @@ export class EmailDatabase {
       whereClauses.push(`
         e.id IN (
           SELECT email_id FROM recipients 
-          WHERE domain = $domain
-        )
+          WHERE domain = $domain )
       `);
       params.$domain = options.domain.toLowerCase();
     }

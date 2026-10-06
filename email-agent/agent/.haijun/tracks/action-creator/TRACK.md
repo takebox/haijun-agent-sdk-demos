@@ -8,9 +8,9 @@ allowed-tools: Write, Edit, Read, Glob
 
 Creates TypeScript action template files that define reusable, user-specific operations users can execute with one click in the chat interface.
 
-## When to Use This Skill
+## When to Use This Track
 
-Use this skill when the user wants to:
+Use this track when the user wants to:
 - Create reusable actions for their specific workflows ("I often need to send payment reminders to ACME Corp")
 - Set up one-click operations for their vendors/customers ("Forward bugs to engineering team")
 - Automate repetitive email tasks with their specific context ("Archive newsletters from TechCrunch/Morning Brew")
@@ -65,8 +65,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { paramName } = params;
 
   context.log(`Starting action: ${config.name}`);

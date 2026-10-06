@@ -120,8 +120,7 @@ export class DatabaseManager {
         labels TEXT,
         rawHeaders TEXT,
         createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
-      )
+        updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP )
     `);
 
     // Create attachments table
@@ -134,8 +133,7 @@ export class DatabaseManager {
         size_bytes INTEGER,
         content_id TEXT,
         is_inline BOOLEAN DEFAULT 0,
-        FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE
-      )
+        FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE )
     `);
 
     // Create FTS5 table for full-text search
@@ -177,12 +175,10 @@ export class DatabaseManager {
       BEGIN
         INSERT INTO emails_fts(
           messageId, subject, fromAddress, fromName, bodyText,
-          toAddresses, ccAddresses
-        )
+          toAddresses, ccAddresses )
         VALUES (
           NEW.messageId, NEW.subject, NEW.fromAddress, NEW.fromName,
-          NEW.bodyText, NEW.toAddresses, NEW.ccAddresses
-        );
+          NEW.bodyText, NEW.toAddresses, NEW.ccAddresses );
       END
     `);
 
@@ -216,8 +212,7 @@ export class DatabaseManager {
         state_id TEXT UNIQUE NOT NULL,
         data_json TEXT NOT NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-      )
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP )
     `);
 
     this.db.exec(`
@@ -227,8 +222,7 @@ export class DatabaseManager {
         component_id TEXT NOT NULL,
         state_id TEXT NOT NULL,
         session_id TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-      )
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP )
     `);
 
     // Create UI State indexes
@@ -266,16 +260,14 @@ export class DatabaseManager {
         body_text, body_html, snippet,
         is_read, is_starred, is_important, is_draft, is_sent,
         is_trash, is_spam, size_bytes, has_attachments,
-        attachment_count, folder, labels, raw_headers
-      ) VALUES (
+        attachment_count, folder, labels, raw_headers ) VALUES (
         $messageId, $threadId, $inReplyTo, $references,
         $dateSent, $dateReceived, $subject, $fromAddress, $fromName,
         $toAddresses, $ccAddresses, $bccAddresses, $replyTo,
         $bodyText, $bodyHtml, $snippet,
         $isRead, $isStarred, $isImportant, $isDraft, $isSent,
         $isTrash, $isSpam, $sizeBytes, $hasAttachments,
-        $attachmentCount, $folder, $labels, $rawHeaders
-      )
+        $attachmentCount, $folder, $labels, $rawHeaders )
       ON CONFLICT(message_id) DO UPDATE SET
         thread_id = excluded.thread_id,
         in_reply_to = excluded.in_reply_to,
@@ -311,10 +303,8 @@ export class DatabaseManager {
 
     const insertAttachment = this.db.prepare(`
       INSERT INTO attachments (
-        email_id, filename, content_type, size_bytes, content_id, is_inline
-      ) VALUES (
-        $emailId, $filename, $contentType, $sizeBytes, $contentId, $isInline
-      )
+        email_id, filename, content_type, size_bytes, content_id, is_inline ) VALUES (
+        $emailId, $filename, $contentType, $sizeBytes, $contentId, $isInline )
     `);
 
     const deleteAttachments = this.db.prepare(`
@@ -403,8 +393,7 @@ export class DatabaseManager {
         e.id IN (
           SELECT e2.id FROM emails e2
           JOIN emails_fts fts ON e2.message_id = fts.message_id
-          WHERE emails_fts MATCH $query
-        )
+          WHERE emails_fts MATCH $query )
       `);
       params.$query = criteria.query;
     }

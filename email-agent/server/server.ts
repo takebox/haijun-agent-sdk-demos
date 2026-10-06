@@ -37,8 +37,7 @@ const wsHandler = new WebSocketHandler(
   DATABASE_PATH,
   actionsManager,
   uiStateManager,
-  componentManager
-);
+  componentManager );
 const db = new Database(DATABASE_PATH);
 
 db.run(`
@@ -64,8 +63,7 @@ const listenersManager = new ListenersManager(
     // Log broadcast callback - broadcasts listener logs via WebSocket
     wsHandler.broadcastListenerLog(log);
   },
-  uiStateManager
-);
+  uiStateManager );
 
 // Initialize EmailSyncService with listenersManager
 const syncService = new EmailSyncService(DATABASE_PATH, listenersManager);

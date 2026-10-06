@@ -32,8 +32,7 @@ function MessageInput({ onSendMessage, disabled = false }: MessageInputProps) {
     if (
       (message.trim() || selectedFiles.length > 0) &&
       !disabled &&
-      !isUploading
-    ) {
+      !isUploading ) {
       setIsUploading(true);
       try {
         await onSendMessage(

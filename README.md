@@ -1,8 +1,8 @@
-# Claude Agent SDK Demos
+# Haijun Agent SDK Demos
 
-> ⚠️ **IMPORTANT**: These are demo applications by Anthropic. They are intended for local development only and should NOT be deployed to production or used at scale.
+> ⚠️ **IMPORTANT**: These are demo applications by Takebox AI. They are intended for local development only and should NOT be deployed to production or used at scale.
 
-This repository contains multiple demonstrations of the [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview), showcasing different ways to build AI-powered applications with Claude.
+This repository contains multiple demonstrations of the [Haijun Agent SDK](https://platform.haijun.my.id/docs/en/agent-sdk/overview), showcasing different ways to build AI-powered applications with Haijun.
 
 ## Available Demos
 
@@ -13,10 +13,10 @@ An in-development IMAP email assistant that can:
 - Provide AI-powered email assistance
 
 ### 📊 [Excel Demo](./excel-demo)
-Demonstrations of working with spreadsheets and Excel files using Claude.
+Demonstrations of working with spreadsheets and Excel files using Haijun.
 
 ### 👋 [Hello World](./hello-world)
-A simple getting-started example to help you understand the basics of the Claude Agent SDK.
+A simple getting-started example to help you understand the basics of the Haijun Agent SDK.
 
 ### 🔄 [Hello World V2](./hello-world-v2)
 Examples for the V2 Session API (`unstable_v2_*`): separate `send()`/`stream()` instead of a single `query()` generator, with multi-turn conversation and session persistence patterns.
@@ -32,7 +32,7 @@ A multi-agent research system that coordinates specialized subagents to research
 A branding assistant that renders AskUserQuestion options as visual HTML preview cards instead of plain text labels:
 - Opts in to `previewFormat: "html"` so each option includes a styled HTML mockup
 - Round-trips questions from the SDK's `canUseTool` callback to a browser over WebSocket
-- Demonstrates plan mode steering Claude toward clarifying questions before acting
+- Demonstrates plan mode steering Haijun toward clarifying questions before acting
 
 ### 💬 [Simple Chat App](./simple-chatapp)
 A React + Express chat UI backed by the SDK, showing a full conversation loop over WebSocket with streaming responses.
@@ -48,14 +48,14 @@ Each demo has its own directory with dedicated setup instructions. Navigate to t
 ## Prerequisites
 
 - [Bun](https://bun.sh) runtime (or Node.js 18+)
-- An Anthropic API key ([get one here](https://console.anthropic.com))
+- An Takebox AI API key ([get one here](https://platform.haijun.my.id))
 
 ## Getting Started
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/anthropics/claude-agent-sdk-demos.git
-cd claude-agent-sdk-demos
+git clone https://github.com/takebox/haijun-agent-sdk-demos.git
+cd haijun-agent-sdk-demos
 ```
 
 2. **Choose a demo and navigate to its directory**
@@ -67,16 +67,16 @@ cd email-agent  # or excel-demo, or hello-world
 
 ## Resources
 
-- [Claude Agent SDK Documentation](https://platform.claude.com/docs/en/agent-sdk)
-- [API Reference](https://platform.claude.com/docs/en/agent-sdk/api-reference)
-- [GitHub Issues](https://github.com/anthropics/claude-agent-sdk-demos/issues)
+- [Haijun Agent SDK Documentation](https://platform.haijun.my.id/docs/en/agent-sdk)
+- [API Reference](https://platform.haijun.my.id/docs/en/agent-sdk/api-reference)
+- [GitHub Issues](https://github.com/takebox/haijun-agent-sdk-demos/issues)
 
 ## Support
 
 These are demo applications provided as-is. For issues related to:
-- **Claude Agent SDK**: [SDK Documentation](https://platform.claude.com/docs/en/agent-sdk)
-- **Demo Issues**: [GitHub Issues](https://github.com/anthropics/sdk-demos/issues)
-- **API Questions**: [Anthropic Support](https://support.anthropic.com)
+- **Haijun Agent SDK**: [SDK Documentation](https://platform.haijun.my.id/docs/en/agent-sdk)
+- **Demo Issues**: [GitHub Issues](https://github.com/takebox/sdk-demos/issues)
+- **API Questions**: [Takebox AI Support](https://support.haijun.my.id)
 
 ## License
 

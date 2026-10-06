@@ -49,7 +49,7 @@ function MessageList({ messages, isLoading, currentTodos = [] }: MessageListProp
               style={{ animationDelay: '0.2s' }}
             />
           </div>
-          <span className="text-sm">Claude is thinking...</span>
+          <span className="text-sm">Haijun is thinking...</span>
         </div>
       )}
 

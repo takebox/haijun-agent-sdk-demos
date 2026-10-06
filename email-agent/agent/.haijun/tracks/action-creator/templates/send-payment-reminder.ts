@@ -42,8 +42,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { vendorEmail, vendorName, invoiceNumber, amount, dueDate, daysPastDue } = params;
 
   context.log(`Sending payment reminder for ${invoiceNumber} to ${vendorName}`);

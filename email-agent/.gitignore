@@ -84,14 +84,14 @@ temp/
 ehthumbs.db
 Thumbs.db
 
-# Claude Code
-.claude/checkpoints/
-.claude/settings.local.json
+# Haijun Code
+.haijun/checkpoints/
+.haijun/settings.local.json
 
 # Override parent .gitignore for agent markdown files
-!agent/.claude/
-!agent/.claude/agents/
-!agent/.claude/agents/*.md
+!agent/.haijun/
+!agent/.haijun/agents/
+!agent/.haijun/agents/*.md
 !agent/data/PROFILE.MD
 
 # Lock files (keep only one)

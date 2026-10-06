@@ -114,8 +114,7 @@ export class ActionsManager {
    */
   async executeAction(
     instanceId: string,
-    context: ActionContext
-  ): Promise<ActionResult> {
+    context: ActionContext ): Promise<ActionResult> {
     const startTime = Date.now();
     const instance = this.instances.get(instanceId);
 

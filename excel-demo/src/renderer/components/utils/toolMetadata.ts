@@ -1,5 +1,5 @@
 /**
- * Metadata for Claude Code tools including icons, colors, and formatting
+ * Metadata for Haijun Code tools including icons, colors, and formatting
  */
 
 export interface ToolMetadata {
@@ -123,12 +123,12 @@ export const TOOL_METADATA: Record<string, ToolMetadata> = {
     description: 'Reading MCP resource',
   },
 
-  // Skills
-  Skill: {
+  // Tracks
+  Track: {
     icon: '🎯',
     color: '#EC4899', // pink-500
     category: 'other',
-    description: 'Using skill',
+    description: 'Using track',
   },
   SlashCommand: {
     icon: '⚡',

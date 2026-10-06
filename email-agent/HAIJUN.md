@@ -1,0 +1,2 @@
+- the subagents are in @agent/.haijun/agents
+- always use bun in this project

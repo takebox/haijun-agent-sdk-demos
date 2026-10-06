@@ -1,12 +1,12 @@
 # Simple Chat App
 
-A minimal chat application demonstrating the Claude Agent SDK.
+A minimal chat application demonstrating the Haijun Agent SDK.
 
 ## Architecture
 
 - **Frontend**: React + Vite + Tailwind CSS
 - **Backend**: Node.js + Express + WebSocket (ws)
-- **Agent**: Claude Agent SDK integrated directly on the server
+- **Agent**: Haijun Agent SDK integrated directly on the server
 
 ## Running the App
 
@@ -38,7 +38,7 @@ simple-chatapp/
 │       └── useWebSocket.ts   # WebSocket hook
 ├── server/
 │   ├── server.ts             # Express server (REST + WebSocket)
-│   ├── ai-client.ts          # Claude Agent SDK wrapper
+│   ├── ai-client.ts          # Haijun Agent SDK wrapper
 │   ├── session.ts            # Chat session management
 │   ├── chat-store.ts         # In-memory chat storage
 │   └── types.ts              # TypeScript types

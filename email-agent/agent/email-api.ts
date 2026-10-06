@@ -195,6 +195,5 @@ const addressEmails = await emailAPI.searchWithGmailQuery(
 // Search for unread emails with attachments
 const unreadWithAttachments = await emailAPI.searchWithGmailQuery(
   'is:unread has:attachment',
-  { headersOnly: true }  // Faster, only fetches headers
-);
+  { headersOnly: true }  // Faster, only fetches headers );
 */

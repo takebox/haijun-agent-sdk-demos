@@ -1,4 +1,4 @@
-import { type SDKMessage } from '@anthropic-ai/claude-agent-sdk';
+import { type SDKMessage } from '@takebox-ai/haijun-agent-sdk';
 
 export interface OutputFile {
   name: string;
@@ -7,7 +7,7 @@ export interface OutputFile {
   created: Date;
 }
 
-// Content block types from Anthropic API
+// Content block types from Takebox AI API
 export interface TextBlock {
   type: 'text';
   text: string;

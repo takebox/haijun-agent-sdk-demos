@@ -76,8 +76,7 @@ class SubagentTracker:
         tool_use_id: str,
         subagent_type: str,
         description: str,
-        prompt: str
-    ) -> str:
+        prompt: str ) -> str:
         """
         Register a new subagent spawn detected from the message stream.
 
@@ -100,8 +99,7 @@ class SubagentTracker:
             spawned_at=datetime.now().isoformat(),
             description=description,
             prompt_preview=prompt[:200] + "..." if len(prompt) > 200 else prompt,
-            subagent_id=subagent_id
-        )
+            subagent_id=subagent_id )
 
         self.sessions[tool_use_id] = session
         logger.info(f"{'='*60}")
@@ -199,8 +197,7 @@ class SubagentTracker:
                 tool_input=tool_input,
                 tool_use_id=tool_use_id,
                 subagent_type=agent_type,
-                parent_tool_use_id=self._current_parent_id
-            )
+                parent_tool_use_id=self._current_parent_id )
             session.tool_calls.append(record)
             self.tool_call_records[tool_use_id] = record
 

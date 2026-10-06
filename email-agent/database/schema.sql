@@ -50,8 +50,7 @@ CREATE TABLE IF NOT EXISTS emails (
     raw_headers TEXT,                  -- Store for advanced searches
     
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP );
 
 -- Recipients table (normalized for efficient domain searches)
 CREATE TABLE IF NOT EXISTS recipients (
@@ -64,8 +63,7 @@ CREATE TABLE IF NOT EXISTS recipients (
         LOWER(SUBSTR(address, INSTR(address, '@') + 1))
     ) STORED,
     
-    FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE
-);
+    FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE );
 
 -- Attachments table
 CREATE TABLE IF NOT EXISTS attachments (
@@ -80,8 +78,7 @@ CREATE TABLE IF NOT EXISTS attachments (
         LOWER(SUBSTR(filename, INSTR(filename, '.') + 1))
     ) STORED,
     
-    FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE
-);
+    FOREIGN KEY (email_id) REFERENCES emails(id) ON DELETE CASCADE );
 
 -- Contacts table (auto-populated from emails)
 CREATE TABLE IF NOT EXISTS contacts (
@@ -95,8 +92,7 @@ CREATE TABLE IF NOT EXISTS contacts (
     last_seen DATETIME DEFAULT CURRENT_TIMESTAMP,
     sent_count INTEGER DEFAULT 0,      -- Emails sent to this contact
     received_count INTEGER DEFAULT 0,  -- Emails received from this contact
-    is_blocked BOOLEAN DEFAULT 0
-);
+    is_blocked BOOLEAN DEFAULT 0 );
 
 -- Threads table for conversation management
 CREATE TABLE IF NOT EXISTS threads (
@@ -108,8 +104,7 @@ CREATE TABLE IF NOT EXISTS threads (
     first_message_date DATETIME,
     has_unread BOOLEAN DEFAULT 0,
     has_starred BOOLEAN DEFAULT 0,
-    snippet TEXT                       -- Latest message preview
-);
+    snippet TEXT                       -- Latest message preview );
 
 -- Full-text search table for email content
 CREATE VIRTUAL TABLE IF NOT EXISTS emails_fts USING fts5(
@@ -130,8 +125,7 @@ CREATE TABLE IF NOT EXISTS search_history (
     query_type TEXT,
     result_count INTEGER DEFAULT 0,
     execution_time_ms INTEGER,
-    searched_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+    searched_at DATETIME DEFAULT CURRENT_TIMESTAMP );
 
 -- Create indexes for common queries
 CREATE INDEX idx_emails_date_sent ON emails(date_sent DESC);
@@ -206,13 +200,11 @@ SELECT
     GROUP_CONCAT(
         CASE r.type 
             WHEN 'to' THEN r.address 
-        END
-    ) as to_addresses,
+        END ) as to_addresses,
     GROUP_CONCAT(
         CASE r.type 
             WHEN 'cc' THEN r.address 
-        END
-    ) as cc_addresses
+        END ) as cc_addresses
 FROM emails e
 LEFT JOIN recipients r ON e.id = r.email_id
 GROUP BY e.id;

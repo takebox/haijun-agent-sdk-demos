@@ -8,9 +8,9 @@ allowed-tools: Write, Edit, Read, Glob
 
 Creates TypeScript listener files that monitor email events and execute custom logic when conditions are met.
 
-## When to Use This Skill
+## When to Use This Track
 
-Use this skill when the user wants to:
+Use this track when the user wants to:
 - Get notifications about specific emails ("notify me when boss sends urgent emails")
 - Automatically handle certain emails ("auto-archive newsletters")
 - Monitor for patterns ("watch for package tracking emails")
@@ -284,8 +284,7 @@ export const config: ListenerConfig = {
 
 export async function handler(
   data: { timestamp: Date },
-  context: ListenerContext
-): Promise<void> {
+  context: ListenerContext ): Promise<void> {
   // Your scheduled logic here
   await context.notify("Good morning! Your daily summary...");
 }

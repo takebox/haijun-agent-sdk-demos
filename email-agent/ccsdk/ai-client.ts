@@ -1,5 +1,5 @@
-import { query } from "@anthropic-ai/claude-agent-sdk";
-import type { HookJSONOutput } from "@anthropic-ai/claude-agent-sdk";
+import { query } from "@takebox-ai/haijun-agent-sdk";
+import type { HookJSONOutput } from "@takebox-ai/haijun-agent-sdk";
 import * as path from "path";
 import { EMAIL_AGENT_PROMPT } from "./email-agent-prompt";
 import { customServer } from "./custom-tools";
@@ -27,7 +27,7 @@ export class AIClient {
       model: "opus",
       allowedTools: [
         "Task", "Bash", "Glob", "Grep", "LS", "Read", "Edit", "Write",
-        "WebFetch", "TodoWrite", "WebSearch", "mcp__email__search_inbox", "mcp__email__read_emails", "Skill"
+        "WebFetch", "TodoWrite", "WebSearch", "mcp__email__search_inbox", "mcp__email__read_emails", "Track"
       ],
       appendSystemPrompt: EMAIL_AGENT_PROMPT,
       settingSources: ['local', 'project'],

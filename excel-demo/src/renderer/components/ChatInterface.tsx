@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { type SDKMessage } from '@anthropic-ai/claude-agent-sdk';
+import { type SDKMessage } from '@takebox-ai/haijun-agent-sdk';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import { ChatMessage, OutputFile } from './types';
@@ -12,9 +12,9 @@ function ChatInterface() {
   const [currentTodos, setCurrentTodos] = useState<TodoItem[]>([]);
 
   useEffect(() => {
-    // Set up listeners for Claude Code responses
+    // Set up listeners for Haijun Code responses
     const removeResponseListener = window.electron.ipcRenderer.on(
-      'claude-code:response',
+      'haijun-code:response',
       (message: SDKMessage) => {
         if (message.type === 'assistant') {
           setMessages((prev) => {
@@ -73,7 +73,7 @@ function ChatInterface() {
     );
 
     const removeErrorListener = window.electron.ipcRenderer.on(
-      'claude-code:error',
+      'haijun-code:error',
       (errorMessage: string) => {
         setError(errorMessage);
         setIsLoading(false);
@@ -90,7 +90,7 @@ function ChatInterface() {
     );
 
     const removeOutputFilesListener = window.electron.ipcRenderer.on(
-      'claude-code:output-files',
+      'haijun-code:output-files',
       (outputFiles: OutputFile[]) => {
         console.log('Received output files:', outputFiles);
         setMessages((prev) => {
@@ -168,7 +168,7 @@ function ChatInterface() {
           );
         }
 
-        window.electron.ipcRenderer.sendMessage('claude-code:query', {
+        window.electron.ipcRenderer.sendMessage('haijun-code:query', {
           content,
           files: fileData,
         });
@@ -183,7 +183,7 @@ function ChatInterface() {
     <div className="flex flex-col h-screen bg-gray-50">
       <header className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
         <h1 className="text-2xl font-semibold text-gray-800">
-          CLAUDE EXCEL AGENT
+          HAIJUN EXCEL AGENT
         </h1>
       </header>
 

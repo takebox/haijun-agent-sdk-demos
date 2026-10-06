@@ -67,8 +67,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   // Execute action logic using context methods
   // Return structured result
 
@@ -360,8 +359,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { invoiceNumber, amount, dueDate, daysPastDue } = params;
   const acmeEmail = "accounts.payable@acmecorp.com";
 
@@ -437,8 +435,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { daysOld = 30 } = params;
 
   // Calculate date threshold
@@ -513,8 +510,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { weeksBack = 4 } = params;
 
   context.log(`Finding CEO weekly updates from the last ${weeksBack} weeks`);
@@ -607,8 +603,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { hoursBack = 24 } = params;
 
   context.log(`Checking for urgent customer support emails from the last ${hoursBack} hours`);
@@ -721,8 +716,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { emailId, priority, affectedFeature, reproducible = false } = params;
 
   const engineeringTeam = "engineering@company.com";
@@ -933,8 +927,7 @@ export class ActionsManager {
    */
   async executeAction(
     instanceId: string,
-    context: ActionContext
-  ): Promise<ActionResult> {
+    context: ActionContext ): Promise<ActionResult> {
     const startTime = Date.now();
     const instance = this.instances.get(instanceId);
 

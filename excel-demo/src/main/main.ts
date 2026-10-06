@@ -8,7 +8,7 @@
  * When running `npm run build` or `npm run build:main`, this file is compiled to
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
-import { query, type SDKMessage } from '@anthropic-ai/claude-agent-sdk';
+import { query, type SDKMessage } from '@takebox-ai/haijun-agent-sdk';
 import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron';
 import log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
@@ -85,7 +85,7 @@ ipcMain.handle('open-output-directory', async () => {
 });
 
 ipcMain.on(
-  'claude-code:query',
+  'haijun-code:query',
   async (
     event,
     data:
@@ -147,7 +147,7 @@ ipcMain.on(
                 `File ${file.name} is too large (${Math.round(file.buffer.byteLength / 1024 / 1024)}MB), skipping`,
               );
               event.reply(
-                'claude-code:error',
+                'haijun-code:error',
                 `File ${file.name} is too large. Maximum size is 10MB.`,
               );
               continue;
@@ -172,7 +172,7 @@ ipcMain.on(
           } catch (fileError) {
             console.error(`Error processing file ${file.name}:`, fileError);
             event.reply(
-              'claude-code:error',
+              'haijun-code:error',
               `Failed to save file ${file.name}: ${fileError instanceof Error ? fileError.message : 'Unknown error'}`,
             );
           }
@@ -197,7 +197,7 @@ ipcMain.on(
             'MultiEdit',
             'WebSearch',
             'GrepTool',
-            'Skill',
+            'Track',
             'TodoWrite',
             'TodoEdit',
           ],
@@ -208,7 +208,7 @@ ipcMain.on(
       for await (const message of queryIterator) {
         messages.push(message);
         console.log(JSON.stringify(message));
-        event.reply('claude-code:response', message);
+        event.reply('haijun-code:response', message);
       }
 
       // Check for new output files after completion
@@ -235,18 +235,18 @@ ipcMain.on(
             }));
 
             console.log('New output files detected:', outputFiles);
-            event.reply('claude-code:output-files', outputFiles);
+            event.reply('haijun-code:output-files', outputFiles);
           }
         }
       } catch (error) {
         console.warn('Error checking for output files:', error);
       }
 
-      console.log('FINISHED CLAUDE CODE EVALUATION!');
+      console.log('FINISHED HAIJUN CODE EVALUATION!');
     } catch (error) {
-      console.error('Claude Code SDK error:', error);
+      console.error('Haijun Code SDK error:', error);
       event.reply(
-        'claude-code:error',
+        'haijun-code:error',
         error instanceof Error ? error.message : 'Unknown error',
       );
     }

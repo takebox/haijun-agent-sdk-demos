@@ -1,17 +1,17 @@
 # Excel Demo
 
-> ⚠️ **IMPORTANT**: This is a demo application by Anthropic. It is intended for local development only and should NOT be deployed to production or used at scale.
+> ⚠️ **IMPORTANT**: This is a demo application by Takebox AI. It is intended for local development only and should NOT be deployed to production or used at scale.
 
-A demonstration desktop application powered by Claude and the [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk), showcasing AI-powered spreadsheet creation, analysis, and manipulation capabilities.
+A demonstration desktop application powered by Haijun and the [Haijun Agent SDK](https://platform.haijun.my.id/docs/en/agent-sdk), showcasing AI-powered spreadsheet creation, analysis, and manipulation capabilities.
 
 ## What This Demo Shows
 
 This Electron-based desktop application demonstrates how to:
 - Create sophisticated Excel spreadsheets with formulas, formatting, and multiple sheets
 - Analyze and manipulate existing spreadsheet data
-- Use Claude to assist with data organization and spreadsheet design
+- Use Haijun to assist with data organization and spreadsheet design
 - Work with Python scripts to generate complex spreadsheet structures
-- Integrate the Claude Agent SDK with desktop applications
+- Integrate the Haijun Agent SDK with desktop applications
 
 ### Example Use Cases
 
@@ -23,7 +23,7 @@ The `agent/` folder contains Python examples including:
 ## Prerequisites
 
 - [Node.js 18+](https://nodejs.org) or [Bun](https://bun.sh)
-- An Anthropic API key ([get one here](https://console.anthropic.com))
+- An Takebox AI API key ([get one here](https://platform.haijun.my.id))
 - Python 3.9+ (for the Python agent examples)
 - LibreOffice (optional, for formula recalculation)
 
@@ -31,7 +31,7 @@ The `agent/` folder contains Python examples including:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/anthropics/sdk-demos.git
+git clone https://github.com/takebox/sdk-demos.git
 cd sdk-demos/excel-demo
 ```
 
@@ -41,8 +41,8 @@ npm install
 # or bun install
 ```
 
-3. Configure your Anthropic API key:
-   - Set the `ANTHROPIC_API_KEY` environment variable, or
+3. Configure your Takebox AI API key:
+   - Set the `JUGLOW_API_KEY` environment variable, or
    - The application will prompt you on first run
 
 4. Run the Electron application:
@@ -78,7 +78,7 @@ See the [agent/README.md](./agent/README.md) for more details on the Excel agent
 
 ## Features
 
-- **AI-Powered Spreadsheet Generation**: Let Claude create complex spreadsheets based on your requirements
+- **AI-Powered Spreadsheet Generation**: Let Haijun create complex spreadsheets based on your requirements
 - **Formula Management**: Work with Excel formulas, calculations, and automatic recalculation
 - **Professional Styling**: Generate spreadsheets with headers, colors, borders, and formatting
 - **Multi-Sheet Workbooks**: Create workbooks with multiple related sheets
@@ -101,16 +101,16 @@ excel-demo/
 
 ## Resources
 
-- [Claude Agent SDK Documentation](https://platform.claude.com/docs/en/agent-sdk)
+- [Haijun Agent SDK Documentation](https://platform.haijun.my.id/docs/en/agent-sdk)
 - [Electron Documentation](https://www.electronjs.org/docs/latest/)
 - [openpyxl Documentation](https://openpyxl.readthedocs.io/) (Python library used)
 
 ## Support
 
 This is a demo application provided as-is. For issues related to:
-- **Claude Agent SDK**: [SDK Documentation](https://platform.claude.com/docs/en/agent-sdk)
-- **Demo Issues**: [GitHub Issues](https://github.com/anthropics/sdk-demos/issues)
-- **API Questions**: [Anthropic Support](https://support.anthropic.com)
+- **Haijun Agent SDK**: [SDK Documentation](https://platform.haijun.my.id/docs/en/agent-sdk)
+- **Demo Issues**: [GitHub Issues](https://github.com/takebox/sdk-demos/issues)
+- **API Questions**: [Takebox AI Support](https://support.haijun.my.id)
 
 ## License
 
@@ -118,4 +118,4 @@ MIT - This is sample code for demonstration purposes.
 
 ---
 
-Built by Anthropic to demonstrate the [Claude Agent SDK](https://github.com/anthropics/claude-code-sdk)
+Built by Takebox AI to demonstrate the [Haijun Agent SDK](https://github.com/takebox/haijun-code-sdk)

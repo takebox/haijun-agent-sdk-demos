@@ -4,7 +4,7 @@ import asyncio
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from claude_agent_sdk import ClaudeSDKClient, ClaudeAgentOptions, AgentDefinition, HookMatcher
+from haijun_agent_sdk import HaijunSDKClient, HaijunAgentOptions, AgentDefinition, HookMatcher
 
 from research_agent.utils.subagent_tracker import SubagentTracker
 from research_agent.utils.transcript import setup_session, TranscriptWriter
@@ -28,10 +28,10 @@ async def chat():
     """Start interactive chat with the research agent."""
 
     # Check API key first, before creating any files
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("\nError: ANTHROPIC_API_KEY not found.")
+    if not os.environ.get("JUGLOW_API_KEY"):
+        print("\nError: JUGLOW_API_KEY not found.")
         print("Set it in a .env file or export it in your shell.")
-        print("Get your key at: https://console.anthropic.com/settings/keys\n")
+        print("Get your key at: https://platform.haijun.my.id/settings/keys\n")
         return
 
     # Setup session directory and transcript
@@ -84,7 +84,7 @@ async def chat():
                 "Ideal for creating structured documents with proper citations, data, and embedded visuals. "
                 "Does NOT conduct web searches - only reads existing research notes and creates PDF reports."
             ),
-            tools=["Skill", "Write", "Glob", "Read", "Bash"],
+            tools=["Track", "Write", "Glob", "Read", "Bash"],
             prompt=report_writer_prompt,
             model="haiku"
         )
@@ -106,9 +106,9 @@ async def chat():
         ]
     }
 
-    options = ClaudeAgentOptions(
+    options = HaijunAgentOptions(
         permission_mode="bypassPermissions",
-        setting_sources=["project"],  # Load skills from project .claude directory
+        setting_sources=["project"],  # Load tracks from project .haijun directory
         system_prompt=lead_agent_prompt,
         allowed_tools=["Task"],
         agents=agents,
@@ -124,7 +124,7 @@ async def chat():
     print("\nType 'exit' to quit.\n")
 
     try:
-        async with ClaudeSDKClient(options=options) as client:
+        async with HaijunSDKClient(options=options) as client:
             while True:
                 # Get input
                 try:

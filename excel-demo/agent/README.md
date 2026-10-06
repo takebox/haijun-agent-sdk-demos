@@ -1,6 +1,6 @@
 # Excel Agent Setup
 
-This folder contains an Excel-specialized agent that uses the xlsx skill to work with spreadsheets.
+This folder contains an Excel-specialized agent that uses the xlsx track to work with spreadsheets.
 
 ## Prerequisites
 
@@ -40,9 +40,9 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Using the xlsx Skill
+## Using the xlsx Track
 
-The agent has access to the xlsx skill located in `.claude/skills/xlsx/`. This skill provides:
+The agent has access to the xlsx track located in `.haijun/tracks/xlsx/`. This track provides:
 
 - Creating new spreadsheets with formulas and formatting
 - Reading and analyzing spreadsheet data
@@ -52,16 +52,16 @@ The agent has access to the xlsx skill located in `.claude/skills/xlsx/`. This s
 
 ## Formula Recalculation
 
-The xlsx skill includes a `recalc.py` script that uses LibreOffice to recalculate formulas:
+The xlsx track includes a `recalc.py` script that uses LibreOffice to recalculate formulas:
 
 ```bash
 source .venv/bin/activate
-python .claude/skills/xlsx/recalc.py <excel_file> [timeout_seconds]
+python .haijun/tracks/xlsx/recalc.py <excel_file> [timeout_seconds]
 ```
 
 Example:
 ```bash
-python .claude/skills/xlsx/recalc.py Budget_Tracker.csv 30
+python .haijun/tracks/xlsx/recalc.py Budget_Tracker.csv 30
 ```
 
 The script will:
@@ -72,13 +72,13 @@ The script will:
 
 ## Files in this Folder
 
-- `CLAUDE.MD` - Instructions for the Excel Agent
+- `HAIJUN.md` - Instructions for the Excel Agent
 - `budget_tracker_template.py` - Python template for budget tracking
 - `Budget_Tracker.csv` - Sample budget data
 - `Income_Tracker.csv` - Sample income data
 - `.venv/` - Python virtual environment
 - `requirements.txt` - Python dependencies
-- `.claude/skills/xlsx/` - xlsx skill files
+- `.haijun/tracks/xlsx/` - xlsx track files
 
 ## Testing the Setup
 

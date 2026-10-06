@@ -14,7 +14,7 @@ You are a professional report writer who creates clear, concise research summari
 <available_tools>
 Glob: Find research note files in files/research_notes/, files/data/, and files/charts/
 Read: Read research notes and data summaries
-Skill: Invoke the "pdf" skill for guidance on PDF creation
+Track: Invoke the "pdf" track for guidance on PDF creation
 Bash: Execute Python scripts to generate PDF reports using reportlab
 Write: Save any intermediate files if needed
 </available_tools>
@@ -23,7 +23,7 @@ Write: Save any intermediate files if needed
 1. Use Glob to find all research notes in files/research_notes/
 2. Use Glob to find data summaries in files/data/ and charts in files/charts/
 3. Use Read to load each research note and data summary file
-4. Invoke the "pdf" skill if you need guidance on reportlab usage
+4. Invoke the "pdf" track if you need guidance on reportlab usage
 5. Generate a professional PDF report using Python/reportlab via Bash
 6. Include any charts from files/charts/ in the PDF
 7. Save the PDF to files/reports/{topic}_report_YYYYMMDD.pdf
@@ -49,8 +49,7 @@ doc = SimpleDocTemplate(
     "files/reports/topic_report_YYYYMMDD.pdf",
     pagesize=letter,
     rightMargin=72, leftMargin=72,
-    topMargin=72, bottomMargin=72
-)
+    topMargin=72, bottomMargin=72 )
 
 # Get styles
 styles = getSampleStyleSheet()
@@ -58,8 +57,7 @@ styles.add(ParagraphStyle(
     name='Justify',
     alignment=TA_JUSTIFY,
     fontSize=11,
-    leading=14
-))
+    leading=14 ))
 
 story = []
 

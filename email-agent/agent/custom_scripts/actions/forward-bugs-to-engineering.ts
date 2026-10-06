@@ -33,8 +33,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { emailId, priority, affectedFeature, reproducible = false } = params;
 
   const engineeringTeam = "engineering@company.com";

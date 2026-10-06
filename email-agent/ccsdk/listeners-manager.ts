@@ -1,7 +1,7 @@
 // ccsdk/listeners-manager.ts
 import { readdir, watch } from "fs/promises";
 import { join } from "path";
-import Anthropic from "@anthropic-ai/sdk";
+import Takebox AI from "@takebox-ai/sdk";
 import type {
   ListenerConfig,
   ListenerModule,
@@ -35,8 +35,7 @@ export class ListenersManager {
     imapManager: ImapManager,
     databaseManager: DatabaseManager,
     logBroadcastCallback?: (log: ListenerLogEntry & { listenerId: string; listenerName: string }) => void,
-    uiStateManager?: UIStateManager
-  ) {
+    uiStateManager?: UIStateManager ) {
     this.notificationCallback = notificationCallback;
     this.imapManager = imapManager;
     this.databaseManager = databaseManager;
@@ -311,19 +310,19 @@ export class ListenersManager {
           schema: options.schema
         });
 
-        const anthropic = new Anthropic({
-          apiKey: process.env.ANTHROPIC_API_KEY
+        const Takebox AI = new Takebox AI({
+          apiKey: process.env.JUGLOW_API_KEY
         });
 
         const modelMap: Record<string, string> = {
-          opus: "claude-opus-4-20250514",
-          sonnet: "claude-sonnet-4-20250514",
-          haiku: "claude-3-5-haiku-20241022"
+          opus: "haijun-opus-4-20250514",
+          sonnet: "haijun-sonnet-4-20250514",
+          haiku: "haijun-3-5-haiku-20241022"
         };
 
         const model = modelMap[options.model || "haiku"];
 
-        const response = await anthropic.messages.create({
+        const response = await Takebox AI.messages.create({
           model,
           max_tokens: 4096,
           messages: [

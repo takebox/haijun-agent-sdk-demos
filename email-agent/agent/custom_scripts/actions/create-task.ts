@@ -45,8 +45,7 @@ export async function handler(
     dueDate?: string;
     emailId?: string;
   },
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   try {
     const stateId = 'task_board';
 

@@ -359,8 +359,7 @@ export async function handler(
     date: string;
     emailId?: string;
   },
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   try {
     const stateId = 'financial_dashboard';
 
@@ -502,8 +501,7 @@ interface FinancialClassification {
 
 export async function handler(
   email: Email,
-  context: ListenerContext
-): Promise<ListenerResult> {
+  context: ListenerContext ): Promise<ListenerResult> {
   try {
     // Use AI to classify financial email
     const classification = await context.callAgent({

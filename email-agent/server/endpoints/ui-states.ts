@@ -14,8 +14,7 @@ const corsHeaders = {
  */
 export async function handleGetUIState(
   req: Request,
-  uiStateManager: UIStateManager
-): Promise<Response> {
+  uiStateManager: UIStateManager ): Promise<Response> {
   try {
     const url = new URL(req.url);
     const pathParts = url.pathname.split('/');
@@ -77,8 +76,7 @@ export async function handleGetUIState(
  */
 export async function handleSetUIState(
   req: Request,
-  uiStateManager: UIStateManager
-): Promise<Response> {
+  uiStateManager: UIStateManager ): Promise<Response> {
   try {
     const url = new URL(req.url);
     const pathParts = url.pathname.split('/');
@@ -143,8 +141,7 @@ export async function handleSetUIState(
  */
 export async function handleListUIStates(
   req: Request,
-  uiStateManager: UIStateManager
-): Promise<Response> {
+  uiStateManager: UIStateManager ): Promise<Response> {
   try {
     const states = await uiStateManager.listStates();
 
@@ -177,8 +174,7 @@ export async function handleListUIStates(
  */
 export async function handleListUIStateTemplates(
   req: Request,
-  uiStateManager: UIStateManager
-): Promise<Response> {
+  uiStateManager: UIStateManager ): Promise<Response> {
   try {
     const templates = uiStateManager.getAllTemplates();
 
@@ -211,8 +207,7 @@ export async function handleListUIStateTemplates(
  */
 export async function handleListComponentTemplates(
   req: Request,
-  componentManager: ComponentManager
-): Promise<Response> {
+  componentManager: ComponentManager ): Promise<Response> {
   try {
     const templates = componentManager.getAllTemplates();
 
@@ -245,8 +240,7 @@ export async function handleListComponentTemplates(
  */
 export async function handleDeleteUIState(
   req: Request,
-  uiStateManager: UIStateManager
-): Promise<Response> {
+  uiStateManager: UIStateManager ): Promise<Response> {
   try {
     const url = new URL(req.url);
     const pathParts = url.pathname.split('/');

@@ -8,8 +8,7 @@ CREATE TABLE IF NOT EXISTS ui_states (
     state_id TEXT UNIQUE NOT NULL,        -- Unique identifier for the state (e.g., "financial_dashboard", "task_board")
     data_json TEXT NOT NULL,               -- JSON serialized state data
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP );
 
 -- Index for fast state lookups
 CREATE INDEX IF NOT EXISTS idx_ui_states_state_id ON ui_states(state_id);
@@ -22,8 +21,7 @@ CREATE TABLE IF NOT EXISTS component_instances (
     component_id TEXT NOT NULL,            -- Component template ID
     state_id TEXT NOT NULL,                -- Which UI state this component uses
     session_id TEXT,                       -- Optional session scope
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP );
 
 -- Indexes for component instance lookups
 CREATE INDEX IF NOT EXISTS idx_component_instances_instance_id ON component_instances(instance_id);

@@ -77,8 +77,7 @@ export function EmailHTMLRenderer({ html, className = '' }: EmailHTMLRendererPro
               doc.body.scrollHeight,
               doc.body.offsetHeight,
               doc.documentElement.scrollHeight,
-              doc.documentElement.offsetHeight
-            );
+              doc.documentElement.offsetHeight );
             setIframeHeight(`${height + 20}px`);
           }
         } catch (e) {

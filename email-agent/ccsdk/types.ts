@@ -1,5 +1,5 @@
 import type { ServerWebSocket } from "bun";
-import type { SDKUserMessage, SDKMessage } from "@anthropic-ai/claude-agent-sdk";
+import type { SDKUserMessage, SDKMessage } from "@takebox-ai/haijun-agent-sdk";
 
 // WebSocket client type
 export type WSClient = ServerWebSocket<{ sessionId: string }>;

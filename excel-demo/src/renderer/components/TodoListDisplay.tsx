@@ -59,7 +59,7 @@ function TodoListDisplay({ todos }: TodoListDisplayProps) {
         {todos.map((todo) => {
           const isCrossedOff = crossedOffItems.has(todo.id);
           const isCompleted = todo.status === 'completed';
-          
+
           return (
             <div
               key={todo.id}
@@ -74,7 +74,7 @@ function TodoListDisplay({ todos }: TodoListDisplayProps) {
               >
                 {isCrossedOff ? '❌' : '☐'}
               </button>
-              
+
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-1.5 mb-0.5">
                   <span className="text-xs">{getStatusIcon(todo.status)}</span>
@@ -99,7 +99,7 @@ function TodoListDisplay({ todos }: TodoListDisplayProps) {
           );
         })}
       </div>
-      
+
       <div className="mt-2 pt-2 border-t border-gray-200">
         <div className="flex justify-between text-xs text-gray-600">
           <span>

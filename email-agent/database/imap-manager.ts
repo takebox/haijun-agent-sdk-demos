@@ -482,8 +482,7 @@ export class ImapManager {
 
     return this.syncEmails(
       { start, end: new Date() },
-      folders
-    );
+      folders );
   }
 
   // Disconnect from IMAP

@@ -113,8 +113,7 @@ export const TaskBoard: React.FC<ComponentProps<TaskBoardState>> = ({ state, onA
   const renderColumn = (
     columnId: 'todo' | 'in_progress' | 'done',
     title: string,
-    bgColor: string
-  ) => {
+    bgColor: string ) => {
     const taskIds = columns[columnId];
 
     return (

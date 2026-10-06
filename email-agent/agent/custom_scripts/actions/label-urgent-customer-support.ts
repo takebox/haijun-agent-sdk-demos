@@ -21,8 +21,7 @@ export const config: ActionTemplate = {
 
 export async function handler(
   params: Record<string, any>,
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   const { hoursBack = 24 } = params;
 
   context.log(`Checking for urgent customer support emails from the last ${hoursBack} hours`);

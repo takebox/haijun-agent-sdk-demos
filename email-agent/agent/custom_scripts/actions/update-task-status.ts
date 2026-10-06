@@ -29,8 +29,7 @@ export async function handler(
     taskId: string;
     status: 'todo' | 'in_progress' | 'done';
   },
-  context: ActionContext
-): Promise<ActionResult> {
+  context: ActionContext ): Promise<ActionResult> {
   try {
     const stateId = 'task_board';
 
