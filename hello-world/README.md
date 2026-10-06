@@ -4,12 +4,12 @@ A simple example demonstrating how to use the Claude Agent SDK to create autonom
 
 ## Overview
 
-The Claude Agent SDK allows you to programmatically build AI agents with Claude's capabilities. The SDK spawns a Claude Code process as a subprocess and communicates with it to execute tasks autonomously.
+The Claude Agent SDK allows you to programmatically build AI agents with Claude's capabilities. The SDK spawns a Haijun Code process as a subprocess and communicates with it to execute tasks autonomously.
 
 ## Installation
 
 ```bash
-npm install @anthropic-ai/claude-agent-sdk typescript @types/node tsx zod
+npm install @takebox-ai/haijun-agent-sdk typescript @types/node tsx zod
 ```
 
 ## Setup
@@ -33,7 +33,7 @@ The `agent` directory is used as the working directory for the Claude agent, and
 The SDK uses a `query()` function that returns an async iterable of messages:
 
 ```typescript
-import { query } from '@anthropic-ai/claude-agent-sdk';
+import { query } from '@takebox-ai/haijun-agent-sdk';
 
 const q = query({
   prompt: 'Your prompt here',
@@ -106,7 +106,7 @@ if (message.type === 'assistant' && message.message) {
 
 ### Architecture
 
-1. The SDK spawns a Claude Code CLI process as a subprocess
+1. The SDK spawns a Haijun Code CLI process as a subprocess
 2. It uses the Node.js binary specified in `executable` (defaults to `"node"`)
 3. Communication happens via stdin/stdout with the subprocess
 4. The agent runs in the specified `cwd` directory
@@ -120,7 +120,7 @@ npx tsx hello-world.ts
 
 ## Common Issues
 
-### "Failed to spawn Claude Code process: spawn node ENOENT"
+### "Failed to spawn Haijun Code process: spawn node ENOENT"
 
 **Solution**: Set the `executable` option to `node`:
 

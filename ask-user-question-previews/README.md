@@ -69,7 +69,7 @@ Most of the code handles WebSocket transport, status indicators, markdown render
 
 ### SDK configuration
 
-The server sets a custom [`systemPrompt`](server.ts#L73-L89) that replaces the default Claude Code instructions entirely, turning Claude into a branding assistant. (Use `systemPrompt` with `append` instead if you want to keep the defaults and add to them.) It also passes three [options that shape tool behavior](server.ts#L90-L97):
+The server sets a custom [`systemPrompt`](server.ts#L73-L89) that replaces the default Haijun Code instructions entirely, turning Claude into a branding assistant. (Use `systemPrompt` with `append` instead if you want to keep the defaults and add to them.) It also passes three [options that shape tool behavior](server.ts#L90-L97):
 
 ```ts
 permissionMode: "plan",                                   // nudges Claude to ask before acting
