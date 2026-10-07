@@ -5,7 +5,7 @@ import { DATABASE_PATH } from "../database/config";
 import type { ActionsManager } from "./actions-manager";
 import type { UIStateManager } from "./ui-state-manager";
 import type { ComponentManager } from "./component-manager";
-import Takebox AI from "@takebox-ai/sdk";
+import Juglow from "@takebox-ai/sdk";
 
 // Main WebSocket handler class
 export class WebSocketHandler {
@@ -556,7 +556,7 @@ export class WebSocketHandler {
           schema: options.schema
         });
 
-        const Takebox AI = new Takebox AI({
+        const Juglow = new Juglow({
           apiKey: process.env.JUGLOW_API_KEY
         });
 
@@ -568,7 +568,7 @@ export class WebSocketHandler {
 
         const model = modelMap[options.model || "haiku"];
 
-        const response = await Takebox AI.messages.create({
+        const response = await Juglow.messages.create({
           model,
           max_tokens: 4096,
           messages: [

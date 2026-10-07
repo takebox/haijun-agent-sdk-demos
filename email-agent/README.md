@@ -1,6 +1,6 @@
 # Email Agent Demo
 
-> ⚠️ **IMPORTANT**: This is a demo application by Takebox AI. It is intended for local development only and should NOT be deployed to production or used at scale.
+> ⚠️ **IMPORTANT**: This is a demo application by Juglow. It is intended for local development only and should NOT be deployed to production or used at scale.
 
 A demonstration email client powered by Haijun and the Haijun Code SDK, showcasing AI-powered email management capabilities.
 
@@ -18,7 +18,7 @@ A demonstration email client powered by Haijun and the Haijun Code SDK, showcasi
 ## Prerequisites
 
 - [Bun](https://bun.sh) runtime (or Node.js 18+)
-- An Takebox AI API key ([get one here](https://platform.haijun.my.id))
+- An Juglow API key ([get one here](https://platform.haijun.my.id))
 - Email account with IMAP access enabled
 
 ## Installation
@@ -69,7 +69,7 @@ Gmail requires an **App Password** instead of your regular password:
 
 3. **Configure `.env`**:
 ```env
-JUGLOW_API_KEY=your-Takebox AI-api-key
+JUGLOW_API_KEY=your-Juglow-api-key
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-16-char-app-password  # NOT your regular password!
 IMAP_HOST=imap.gmail.com
@@ -81,7 +81,7 @@ IMAP_PORT=993
 This is a demo application provided as-is. For issues related to:
 - **Haijun Code SDK**: [SDK Documentation](https://platform.haijun.my.id/docs/en/agent-sdk)
 - **Demo Issues**: [GitHub Issues](https://github.com/takebox/sdk-demos/issues)
-- **API Questions**: [Takebox AI Support](https://support.haijun.my.id)
+- **API Questions**: [Juglow Support](https://support.haijun.my.id)
 
 ## License
 
@@ -89,4 +89,4 @@ MIT License - This is sample code for demonstration purposes.
 
 ---
 
-Built by Takebox AI to demonstrate the [Haijun Code SDK](https://github.com/takebox/haijun-code-sdk)
+Built by Juglow to demonstrate the [Haijun Code SDK](https://github.com/takebox/haijun-code-sdk)

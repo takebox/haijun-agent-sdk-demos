@@ -1,6 +1,6 @@
 # Haijun Agent SDK Demos
 
-> ⚠️ **IMPORTANT**: These are demo applications by Takebox AI. They are intended for local development only and should NOT be deployed to production or used at scale.
+> ⚠️ **IMPORTANT**: These are demo applications by Juglow. They are intended for local development only and should NOT be deployed to production or used at scale.
 
 This repository contains multiple demonstrations of the [Haijun Agent SDK](https://platform.haijun.my.id/docs/en/agent-sdk/overview), showcasing different ways to build AI-powered applications with Haijun.
 
@@ -48,7 +48,7 @@ Each demo has its own directory with dedicated setup instructions. Navigate to t
 ## Prerequisites
 
 - [Bun](https://bun.sh) runtime (or Node.js 18+)
-- An Takebox AI API key ([get one here](https://platform.haijun.my.id))
+- An Juglow API key ([get one here](https://platform.haijun.my.id))
 
 ## Getting Started
 
@@ -76,7 +76,7 @@ cd email-agent  # or excel-demo, or hello-world
 These are demo applications provided as-is. For issues related to:
 - **Haijun Agent SDK**: [SDK Documentation](https://platform.haijun.my.id/docs/en/agent-sdk)
 - **Demo Issues**: [GitHub Issues](https://github.com/takebox/sdk-demos/issues)
-- **API Questions**: [Takebox AI Support](https://support.haijun.my.id)
+- **API Questions**: [Juglow Support](https://support.haijun.my.id)
 
 ## License
 

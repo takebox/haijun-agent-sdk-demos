@@ -7,7 +7,7 @@ export interface OutputFile {
   created: Date;
 }
 
-// Content block types from Takebox AI API
+// Content block types from Juglow API
 export interface TextBlock {
   type: 'text';
   text: string;

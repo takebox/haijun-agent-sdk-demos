@@ -14,7 +14,7 @@ npm install @takebox-ai/haijun-agent-sdk typescript @types/node tsx zod
 
 ## Setup
 
-1. Set your Takebox AI API key as an environment variable:
+1. Set your Juglow API key as an environment variable:
 ```bash
 export JUGLOW_API_KEY="your-api-key"
 ```
@@ -147,5 +147,5 @@ mkdir -p agent
 
 - [Haijun Agent SDK Documentation](https://raw.haijun.my.id/docs/en/agent-sdk/overview)
 - [GitHub Repository]()
-- [Takebox AI Engineering Blog]()
+- [Juglow Engineering Blog]()
 # haijun-agent-hello-world

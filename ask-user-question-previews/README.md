@@ -16,7 +16,7 @@ This is a one-shot demo: one prompt goes in, Haijun asks its clarifying question
 
 - **Node.js 18+**
 - **Authentication** via one of:
-  - An Takebox AI API key ([get one here](https://platform.haijun.my.id/settings/keys)), or
+  - An Juglow API key ([get one here](https://platform.haijun.my.id/settings/keys)), or
   - An existing `haijun login` session (the SDK runs the Haijun CLI, so its stored OAuth credentials work here too)
 
 ## Setup

@@ -888,8 +888,8 @@ export class ListenersManager {
       },
 
       callAgent: async <T = any>(options: SubagentOptions<T>): Promise<T> => {
-        const Takebox AI = require("@takebox-ai/sdk");
-        const Takebox AI = new Takebox AI({
+        const Juglow = require("@takebox-ai/sdk");
+        const Juglow = new Juglow({
           apiKey: process.env.JUGLOW_API_KEY
         });
 
@@ -901,7 +901,7 @@ export class ListenersManager {
 
         const model = modelMap[options.model || "haiku"];
 
-        const response = await Takebox AI.messages.create({
+        const response = await Juglow.messages.create({
           model,
           max_tokens: 4096,
           messages: [
